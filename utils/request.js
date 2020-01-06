@@ -17,7 +17,8 @@ class Request {
   request(method,url,data){
     const _this = this
     return new Promise((resolve,reject) => {
-      wx.request({
+      // 这里怎么优化，这样request会被覆盖吧???
+      _this.requestTask = wx.request({
         url: _this.withBaseUrl?_this.baseUrl+url:url,
         data,
         header: {

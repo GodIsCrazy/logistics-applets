@@ -64,6 +64,9 @@ Page({
       userName: this.data.userName
     }).then(res=>{
       wx.setStorageSync('token', res.token)
+      wx.navigateTo({
+        url: '/pages/process/index',
+        })
     })
     // wx.request({
     //   url: 'http://localhost:3000/logistics/login',
@@ -88,7 +91,15 @@ Page({
     //   url: '/pages/logs/logs',
     // })
   },
+  onShow: function () {
+  },
   onLoad: function () {
+    console.log(wx.getStorageSync('token'), '1')
+    if (wx.getStorageSync('token')) {
+      wx.navigateTo({
+        url: '/pages/process/index',
+      })
+    }
     // if (app.globalData.userInfo) {
     //   this.setData({
     //     userInfo: app.globalData.userInfo,
