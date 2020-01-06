@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="logo">物流系统</view>
+  <text class="welcome">欢迎登录</text>
+  <view class="login-form">
+    <view class="login-input {{activeTab === 'Account'?'focus':''}}">
+        <input class="placeholder " type="text" placeholder="请输入账号" bindfocus="accountFocus" bindblur="accountBlur"></input>
+    </view>
+    <view class="login-input {{activeTab === 'Psw'?'focus':''}}">
+        <input class="placeholder " type="text" placeholder="请输入密码" bindfocus="pswFocus" bindblur="accountBlur"></input>
+    </view>
+    <button class="login-btn" bindtap="login">登录</button>
+  </view>
+</view>

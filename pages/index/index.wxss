@@ -1,0 +1,35 @@
+/**index.wxss**/
+.container {
+  padding: 60px 15px 0;
+  padding-top: 60px;
+}
+.logo {
+  color: #0092FF;
+  font-weight: bold;
+  font-size: 24px;
+}
+.welcome {
+font-size: 16px;
+color: #333333;
+letter-spacing: 10.73px;
+font-weight: bold;
+}
+.login-form {
+  padding-top: 40px;
+}
+.login-input {
+    padding: 10px 30px;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+.focus {
+  border: 1px solid #0092FF;
+}
+.login-btn {
+  width: 100%!important;
+  color: #fff;
+  background: #0092FF;
+  letter-spacing: 14px;
+  display: inline-block;
+}
