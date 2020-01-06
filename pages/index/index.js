@@ -4,10 +4,11 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     activeTab: '',
+    userPwd: '',
+    userName: '',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //账号聚焦
@@ -31,11 +32,61 @@ Page({
       activeTab: ''
     })
   },
+  getAccount: function(e){
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+  getPsw: function(e) {
+    this.setData({
+      userPwd: e.detail.value
+    })
+  },
   // 登录
   login: function(){
-    wx.navigateTo({
-      url: '/pages/logs/logs',
+    console.log(this.data.userName)
+    if (!this.data.userName){
+      wx.showToast({
+        title: '请填写用户名！',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.userPwd) {
+      wx.showToast({
+        title: '请填写密码！',
+        icon: 'none'
+      })
+      return
+    }
+    wx.$http.post('/logistics/login', {
+      userPwd: this.data.userPwd,
+      userName: this.data.userName
+    }).then(res=>{
+      wx.setStorageSync('token', res.token)
     })
+    // wx.request({
+    //   url: 'http://localhost:3000/logistics/login',
+    //   method: 'POST',
+    //   data: {
+    //     userPwd: this.data.userPwd ,
+    //     userName: this.data.userName
+    //   },
+    //   success: function(){
+    //     wx.navigateTo({
+    //       url: '/pages/logs/logs',
+    //     })
+    //   },
+    //   fail: function(e){
+    //     wx.showToast({
+    //       title: e.errMsg,
+    //       icon: 'none'
+    //     })
+    //   }
+    // })
+    // wx.navigateTo({
+    //   url: '/pages/logs/logs',
+    // })
   },
   onLoad: function () {
     // if (app.globalData.userInfo) {

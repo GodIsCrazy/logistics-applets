@@ -1,7 +1,9 @@
+const $http = require('./utils/request.js')
 //app.js
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    wx.$http = $http
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
