@@ -1,13 +1,36 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/process/index"
+    "pages/process/index",
+    "pages/user/index"
+    
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "仓储物流",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar":{
+    "color": "#666",
+    "selectedColor": "#16ba63",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/process/index",
+        "text": "首页",
+        "iconPath": "comm/images/tabbar/Index.png",
+        "selectedIconPath": "comm/images/tabbar/selectIndex.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "comm/images/tabbar/user.png",
+        "selectedIconPath": "comm/images/tabbar/selectUser.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
